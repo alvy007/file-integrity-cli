@@ -31,6 +31,18 @@ Exit codes:
 | 1 | Digest mismatch |
 | 2 | Invalid input or file read error |
 
+## Command-line help
+
+To discover available commands and arguments, run:
+
+```bash
+python -m file_integrity --help
+python -m file_integrity hash --help
+python -m file_integrity verify --help
+```
+
+These commands display usage information without computing or checking file hashes.
+
 ## Running the tests
 
 ```bash
