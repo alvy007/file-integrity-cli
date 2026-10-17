@@ -31,6 +31,19 @@ Exit codes:
 | 1 | Digest mismatch |
 | 2 | Invalid input or file read error |
 
+## JSON output for scripts
+
+Use `--json` to get structured output instead of human-readable text. The default output is unchanged.
+
+```bash
+python -m file_integrity hash path/to/file.zip --json
+python -m file_integrity verify path/to/file.zip <trusted-64-character-sha256> --json
+```
+
+The hash response includes `file` and `sha256`. The verification response includes `file`, `expected_sha256`, and the boolean `matches`. In JSON mode, invalid input or a file-read error produces `{"error": "..."}`.
+
+The exit status remains `0` for successful hashing or a matching digest, `1` for a mismatch, and `2` for invalid input or file errors. A JSON verification mismatch reports `"matches": false` even though its exit code is `1`.
+
 ## Command-line help
 
 To discover available commands and arguments, run:
